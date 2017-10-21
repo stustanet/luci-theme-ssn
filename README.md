@@ -56,26 +56,6 @@ Enable the Theme
   * Go to System -> System -> Language and Style
   * Choose Darkmatter in the Design selectbox
 
-Screenshots
-----------
-
-### Desktop
-
-![Darkmatter theme for LuCI - Status](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/desktop-status.jpg?raw=true)
-![Darkmatter theme for LuCI - Realtime Graphs](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/desktop-load.jpg?raw=true)
-![Darkmatter theme for LuCI -  Interfaces](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/desktop-interfaces.jpg?raw=true)
-![Darkmatter theme for LuCI - Wifi](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/desktop-wifi.jpg?raw=true)
-![Darkmatter theme for LuCI - Wifi Edit](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/desktop-wifi-edit.jpg?raw=true)
-
-### Tablet
-
-![Darkmatter theme for LuCI - Startup](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/tablet-startup.jpg?raw=true)
-
-### Phone
-
-![Darkmatter theme for LuCI -  Status](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/phone-status.jpg?raw=true)
-![Darkmatter theme for LuCI - Load](https://github.com/apollo-ng/luci-theme-darkmatter/blob/master/screenshots/phone-load.jpg?raw=true)
-
 License
 -------
 
