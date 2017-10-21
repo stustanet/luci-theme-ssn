@@ -12,16 +12,15 @@ Installation
 
 Edit the feeds.conf and add the following to it:
 
-    # luci-ssn
-    src-git luci-ssn git://gitlab.stusta.de/stustanet/luci-ssn.git.git
+    src-git luci-theme-ssn git://gitlab.stusta.de/stustanet/luci-theme-ssn.git.git
 
-Update your build environment and install the package:
+Update the build environment and install the package:
 
-    $ scripts/feeds update luci-ssn
-    $ scripts/feeds install luci-ssn
+    $ scripts/feeds update -a luci-theme-ssn
+    $ scripts/feeds install -a luci-theme-ssn
     $ make menuconfig
 
-Go to LuCI -> Themes, select luci-ssn, exit, save and build as usual.
+Go to LuCI -> Themes, select luci-theme-ssn, exit, save and build as usual.
 
 Enable the Theme
 ----------------
