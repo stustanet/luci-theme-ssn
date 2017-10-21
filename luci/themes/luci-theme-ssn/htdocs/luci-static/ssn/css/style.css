@@ -23,15 +23,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "DIN";
-    src: url("../fonts/DIN.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-F000;
-}
-
 .cbi-button-up,
 .cbi-button-down,
 .cbi-value-helpicon,
@@ -69,7 +60,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "DIN", Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 a,
@@ -145,7 +136,7 @@ header, .main {
 
 header {
     height: 56px;
-    background: #1f1e1a url("../img/stripes.svg") repeat;
+    background: url("../img/noise.png") #1f1e1a repeat;
     color: #d8d3c5;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .26), inset 0 0 42px 0 #000;;
     transition: box-shadow .2s;
@@ -273,7 +264,7 @@ footer > a {
 }
 
 .warning {
-    background-color: #FF7D60 !important;
+    background-color: #AA3A21 !important;
     color: #FFF;
 }
 
@@ -627,7 +618,6 @@ td > table > tbody > tr > td {
     width: auto !important;
     color: #d8d3c5;
     font-size: 0.8rem;
-    font-family: "DIN";
     font-weight: bold;
     text-shadow: 0 1px 1px #000;
     text-decoration: none;
@@ -636,7 +626,7 @@ td > table > tbody > tr > td {
     border-style: solid;
     border-color: #44433f;
     border-bottom-color: #3a3935;
-    box-shadow: inset 0 0 24px 0 rgb(47, 46, 44), 0 0 3px 0 #000000;
+    box-shadow: inset 0 0 24px 0 rgb(47, 46, 44), 0 0 1px 0 #000000;
     background: -webkit-linear-gradient(top, rgb(73, 71, 68) 0%, rgb(47, 46, 44) 100%);
     background: linear-gradient(to bottom, rgb(73, 71, 68) 0%, rgb(47, 46, 44) 100%);
     padding: 5px;
@@ -677,7 +667,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-transform: uppercase;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
-    box-shadow: inset 0 0 14px 0 #db4213, 0 0 3px 0 #db6113 !important;
+    box-shadow: inset 0 0 14px 0 #db4213, 0 0 1px 0 #db6113 !important;
     border: 1px solid rgba(255, 129, 92, 0.65) !important;
     background: #dbb013 !important;
     background: -moz-radial-gradient(center, ellipse cover, #dbb013 0%, #c69611 100%) !important;
@@ -695,7 +685,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
     text-transform: uppercase;
-    box-shadow: inset 0 0 24px 0 #606f11, 0 0 3px 0 #9db134 !important;
+    box-shadow: inset 0 0 24px 0 #606f11, 0 0 1px 0 #9db134 !important;
     border: 1px solid rgb(121, 144, 55) !important;
     background: #7eaa0f !important;
     background: -webkit-radial-gradient(center, ellipse cover, #7eaa0f 0%, #6d8006 100%) !important;
@@ -709,7 +699,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
     text-transform: uppercase;
-    box-shadow: inset 0 0 24px 0 rgba(62, 62, 62, 0.77), 0 0 4px 0 rgba(236, 232, 219, 0.75);
+    box-shadow: inset 0 0 24px 0 rgba(62, 62, 62, 0.77), 0 0 1px 0 rgba(236, 232, 219, 0.75);
     border: 1px solid #969696 !important;
     background: #dbb013 !important;
     background: -webkit-radial-gradient(center, ellipse cover, rgb(224, 219, 207) 0%, rgba(224, 219, 204, 0.7) 100%) !important;
@@ -723,7 +713,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
     text-transform: uppercase;
-    box-shadow: inset 0 0 14px 0 #82290e, 0 0 3px 0 #db4213 !important;
+    box-shadow: inset 0 0 14px 0 #82290e, 0 0 1px 0 #db4213 !important;
     border: 1px solid #b73813 !important;
     background: #db4213 !important;
     background: -moz-radial-gradient(center, ellipse cover, #db4213 0%, #c93612 100%) !important;
@@ -892,7 +882,7 @@ form.inline + form.inline,
     padding: 10px;
     border: 1px solid #3f3e3a;
     text-align: right;
-    background: #2f2e2a url("../img/stripes.svg") repeat;
+    background: #2f2e2a;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
@@ -1047,7 +1037,7 @@ td > .ifacebadge {
     border: 1px solid #1f1e1a !important;
     border-top: none !important;
     box-shadow: inset 0 0 42px 0 #000;
-    background: #1f1e1a url("../img/stripes.svg") repeat !important;
+    background: #1f1e1a repeat !important;
 }
 
 svg {
@@ -1075,7 +1065,8 @@ svg {
 }
 
 .cbi-image-button {
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
+    margin-right: 0.5rem;
 }
 
 .zonebadge {
@@ -1177,7 +1168,7 @@ header > .container > .pull-right > * {
 #xhr_poll_status > .label.success {
     color: #fafafa !important;
     text-shadow: 0 1px 1px rgba(65, 65, 65, 0.4) !important;
-    box-shadow: inset 0 0 24px 0 #606f11, 0 0 3px 0 #9db134 !important;
+    box-shadow: inset 0 0 24px 0 #606f11, 0 0 1px 0 #9db134 !important;
     border: 1px solid rgb(121, 144, 55) !important;
     background: #7eaa0f !important;
     background: -webkit-radial-gradient(center, ellipse cover, #7eaa0f 0%, #6d8006 100%) !important;
@@ -1197,14 +1188,14 @@ header > .container > .pull-right > * {
     border-style: solid;
     border-color: #44433f;
     border-bottom-color: #3a3935;
-    box-shadow: inset 0 0 24px 0 rgb(47, 46, 44), 0 0 3px 0 #000000;
+    box-shadow: inset 0 0 24px 0 rgb(47, 46, 44), 0 0 1px 0 #000000;
     background: -webkit-linear-gradient(top, rgb(73, 71, 68) 0%, rgb(47, 46, 44) 100%);
     background: linear-gradient(to bottom, rgb(73, 71, 68) 0%, rgb(47, 46, 44) 100%);
     padding: 5px;
 }
 
 #modemenu > li .active > .label {
-    box-shadow: inset 0 0 24px 0 rgba(62, 62, 62, 0.77), 0 0 4px 0 rgba(236, 232, 219, 0.75);
+    box-shadow: inset 0 0 24px 0 rgba(62, 62, 62, 0.77), 0 0 1px 0 rgba(236, 232, 219, 0.75);
     border: 1px solid #969696 !important;
     background: #dbb013 !important;
     background: -webkit-radial-gradient(center, ellipse cover, rgb(224, 219, 207) 0%, rgba(224, 219, 204, 0.7) 100%) !important;
