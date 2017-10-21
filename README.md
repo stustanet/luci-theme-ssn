@@ -1,4 +1,3 @@
-l
 SSN theme for LuCI (LEDE/OpenWRT)
 ========================================
 
