@@ -116,6 +116,10 @@ code {
     text-shadow: none;
 }
 
+fieldset > code {
+    color: #fafafa;
+}
+
 abbr {
     color: rgba(117, 137, 12, 0.85);
     text-shadow: 0 0 2px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,1);
@@ -338,7 +342,6 @@ footer > a {
 }
 
 .main > .main-left > .nav > li {
-    /* border-top: 1px solid #3c3b38; */
     border-bottom: 1px solid #0f0e0a;
     background: #2f2e2a url("../img/noise.png") repeat;
     padding: 0.5rem 1rem;
@@ -360,7 +363,6 @@ footer > a {
     cursor: pointer;
     font-size: 1.1rem;
     line-height: 42px;
-    height: 42px;
 }
 
 .main > .main-left > .nav > .slide > a.menu.active {
@@ -643,11 +645,11 @@ td > table > tbody > tr > td {
 
 .cbi-button:hover,
 .cbi-button:focus {
-    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 .cbi-button:active {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
 .cbi-button:disabled {
@@ -667,7 +669,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-transform: uppercase;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
-    box-shadow: inset 0 0 14px 0 #db4213, 0 0 1px 0 #db6113 !important;
+    box-shadow: inset 0 0 14px 0 #db4213, 0 0 1px 0 #db6113;
     border: 1px solid rgba(255, 129, 92, 0.65) !important;
     background: #dbb013 !important;
     background: -moz-radial-gradient(center, ellipse cover, #dbb013 0%, #c69611 100%) !important;
@@ -685,7 +687,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
     text-transform: uppercase;
-    box-shadow: inset 0 0 24px 0 #606f11, 0 0 1px 0 #9db134 !important;
+    box-shadow: inset 0 0 24px 0 #606f11, 0 0 1px 0 #9db134;
     border: 1px solid rgb(121, 144, 55) !important;
     background: #7eaa0f !important;
     background: -webkit-radial-gradient(center, ellipse cover, #7eaa0f 0%, #6d8006 100%) !important;
@@ -713,7 +715,7 @@ form.inline + form.inline,
     color: #2f2e2a !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
     text-transform: uppercase;
-    box-shadow: inset 0 0 14px 0 #82290e, 0 0 1px 0 #db4213 !important;
+    box-shadow: inset 0 0 14px 0 #82290e, 0 0 1px 0 #db4213;
     border: 1px solid #b73813 !important;
     background: #db4213 !important;
     background: -moz-radial-gradient(center, ellipse cover, #db4213 0%, #c93612 100%) !important;
@@ -1381,7 +1383,7 @@ header > .container > .pull-right > * {
 }
 
 .node-system-reboot > .main > .main-right p:nth-last-child(1){
-    background: #1f1e1a url("../img/stripes.svg") repeat;
+    background: #1f1e1a url("../img/noise.png") repeat;
     padding: 2rem;
 }
 
