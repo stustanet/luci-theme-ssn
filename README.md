@@ -1,60 +1,33 @@
-Darkmatter theme for LuCI (LEDE/OpenWRT)
+SSN theme for LuCI (LEDE/OpenWRT)
 ========================================
 
-Darkmatter is an alternative HTML5 theme for LuCI that has evolved from
-luci-theme-bootstrap & luci-theme-material, in an attempt to bring a more
-concise, clean and visually pleasing UX to LEDE/OpenWRT.
+The SSN theme is an alternative HTML5 theme for LuCI based on the
+[darkmatter theme](https://github.com/apollo-ng/luci-theme-darkmatter) which
+has evolved from luci-theme-bootstrap & luci-theme-material, in an attempt to
+bring a more concise, clean and visually pleasing UX to LEDE/OpenWRT.
 
-Issues & Updates
-----------------
-
-Found a bug? Please create an issue on GitHub:
-    https://github.com/apollo-ng/luci-theme-darkmatter/issues
-
-Further tests and PR's are welcome and appreciated.
 
 Installation
 ------------
 
-In time, darkmatter may be included upstream by the LEDE/OpenWRT crowd,
-to have it always available, for now, please select an installation method
-most suited for your case to get it:
+Edit the feeds.conf and add the following to it:
 
-### Adding Darkmatter to your running LEDE/OpenWRT as ipk package
-
-#### via LuCI
-
-  * Go to System -> Software
-  * Paste the following URL into the **Download and install package** field:
-    - https://apollo.open-resource.org/downloads/luci-theme-darkmatter_0.2-beta-2_all.ipk
-  * Press Enter or click "OK"
-
-#### via shell
-
-    $ cd /tmp
-    $ wget https://apollo.open-resource.org/downloads/luci-theme-darkmatter_0.2-beta-2_all.ipk
-    $ opkg install luci-theme-darkmatter_0.2-beta-2_all.ipk
-
-### Adding Darkmatter to your own LEDE/OpenWRT Build
-
-Edit your feeds.conf and add the following to it:
-
-    # luci-theme-darkmatter
-    src-git darkmatter git://github.com/apollo-ng/luci-theme-darkmatter.git
+    # luci-ssn
+    src-git luci-ssn git://gitlab.stusta.de/stustanet/luci-ssn.git.git
 
 Update your build environment and install the package:
 
-    $ scripts/feeds update darkmatter
-    $ scripts/feeds install luci-theme-darkmatter
+    $ scripts/feeds update luci-ssn
+    $ scripts/feeds install luci-ssn
     $ make menuconfig
 
-Go to LuCI -> Themes, select luci-theme-darkmatter, exit, save and build as usual.
+Go to LuCI -> Themes, select luci-ssn, exit, save and build as usual.
 
 Enable the Theme
 ----------------
 
   * Go to System -> System -> Language and Style
-  * Choose Darkmatter in the Design selectbox
+  * Choose SSN in the Design selectbox
 
 License
 -------
