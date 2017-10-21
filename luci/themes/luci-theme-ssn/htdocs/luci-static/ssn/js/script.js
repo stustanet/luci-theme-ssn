@@ -1,1 +1,227 @@
-!function(a){function i(){var i=!1;return a("body").hasClass("logged-in")?(a(".main > .main-left > .nav > .slide > .menu").each(function(){var n=a(this);n.next().find("a").each(function(){var s=a(this),o=s.attr("href");return-1!=o.indexOf(e)?(n.click(),n.next(".slide-menu").stop(!0,!0),t=s.parent(),t.addClass("active"),i=!0,!0):void 0})}),i):(luciLocation=["Main","Login"],!0)}a(".main > .loading").fadeOut();var t=void 0,n=void 0,e="";!function(a){"admin"==a[0]?luciLocation=[a[1],a[2]]:luciLocation=a;for(var i in luciLocation)e+=luciLocation[i],i!=luciLocation.length-1&&(e+="/")}(luciLocation),a(".main > .main-left > .nav > .slide > .menu").click(function(){var i=a(this).next(".slide-menu"),t=a(this);i.is(":visible")?i.stop(!0).slideUp("fast",function(){t.removeClass("active"),i.removeClass("active")}):(t.addClass("active"),i.addClass("active"),i.stop(!0).slideDown("fast"))}),a(".main > .main-left > .nav > .slide > .slide-menu > li > a").click(function(){return void 0!=t&&t.removeClass("active"),a(this).parent().addClass("active"),a(".main > .loading").fadeIn("fast"),!0}),a(".main > .main-left > .nav > .slide > .slide-menu > li").click(function(){void 0!=t&&t.removeClass("active"),a(this).addClass("active"),a(".main > .loading").fadeIn("fast"),window.location=a(a(this).find("a")[0]).attr("href")}),i()&&(n="node-"+luciLocation[0]+"-"+luciLocation[1],n=n.replace(/[ \t\n\r\/]+/g,"_").toLowerCase(),a("body").addClass(n)),a(".cbi-button-up").val(""),a(".cbi-button-down").val(""),a("#maincontent > .container").find("a").each(function(){var i=a(this),t=i.attr("onclick");(void 0==t||""==t)&&i.click(function(){var t=i.attr("href");return-1==t.indexOf("#")?(a(".main > .loading").fadeIn("fast"),!0):void 0})});var s=!1;if(a(".showSide").click(function(){s?(a(".darkMask").stop(!0).fadeOut("fast"),a(".main-left").stop(!0).animate({width:"0"},"fast"),a(".main-right").css("overflow-y","auto"),s=!1):(a(".darkMask").stop(!0).fadeIn("fast"),a(".main-left").stop(!0).animate({width:"15rem"},"fast"),a(".main-right").css("overflow-y","hidden"),s=!0)}),a(".darkMask").click(function(){s&&(s=!1,a(".darkMask").stop(!0).fadeOut("fast"),a(".main-left").stop(!0).animate({width:"0"},"fast"),a(".main-right").css("overflow-y","auto"))}),a(window).resize(function(){a(window).width()>921&&(a(".main-left").css("width",""),a(".darkMask").stop(!0),a(".darkMask").css("display","none"),s=!1)}),a("legend").each(function(){var i=a(this);i.after("<span class='panel-title'>"+i.text()+"</span>")}),a(".main-right").focus(),a(".main-right").blur(),a("input").attr("size","0"),void 0!=n)switch(console.log("mainNodeName",n),n){case"node-status-system_log":case"node-status-kernel_log":a("#syslog").focus(function(){a("#syslog").blur(),a(".main-right").focus(),a(".main-right").blur()});break;case"node-status-firewall":var o=a(".node-status-firewall > .main fieldset li > a");o.addClass("cbi-button cbi-button-reset a-to-btn");break;case"node-system-reboot":var o=a(".node-system-reboot > .main > .main-right p > a");o.addClass("cbi-button cbi-input-reset a-to-btn")}}(jQuery);
+/**
+ *  luci-theme-ssn
+ *      Copyright 2017 Julien Schmidt <js@stusta.net>
+ *  luci-theme-darkmatter
+ *      Copyright 2017 chrono <https://apollo.open-resource.org>
+ *  luci-theme-material
+ *      Copyright 2015 Lutty Yang <lutty@wcan.in>
+ *  luci-theme-bootstrap:
+ *      Copyright 2008 Steven Barth <steven@midlink.org>
+ *      Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
+ *      Copyright 2012 David Menting <david@nut-bolt.nl>
+ *
+ *  This program is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU General Public License
+ *  as published by the Free Software Foundation; either version 2
+ *  of the License, or (at your option) any later version.
+ */
+
+(function ($) {
+    $(".main > .loading").fadeOut();
+
+    /**
+     * trim text, Remove spaces, wrap
+     * @param text
+     * @returns {string}
+     */
+    function trimText(text) {
+        return text.replace(/[ \t\n\r]+/g, " ");
+    }
+
+
+    var lastNode = undefined;
+    var mainNodeName = undefined;
+
+    var nodeUrl = "";
+    (function(node){
+        if (node[0] == "admin"){
+            luciLocation = [node[1], node[2]];
+        }else{
+            luciLocation = node;
+        }
+
+        for(var i in luciLocation){
+            nodeUrl += luciLocation[i];
+            if (i != luciLocation.length - 1){
+                nodeUrl += "/";
+            }
+        }
+    })(luciLocation);
+
+    /**
+     * get the current node by Burl (primary)
+     * @returns {boolean} success?
+     */
+    function getCurrentNodeByUrl() {
+        var ret = false;
+        if (!$('body').hasClass('logged-in')) {
+            luciLocation = ["Main", "Login"];
+            return true;
+        }
+
+        $(".main > .main-left > .nav > .slide > .menu").each(function () {
+            var ulNode = $(this);
+            ulNode.next().find("a").each(function () {
+                var that = $(this);
+                var href = that.attr("href");
+
+                if (href.indexOf(nodeUrl) != -1) {
+                    ulNode.click();
+                    ulNode.next(".slide-menu").stop(true, true);
+                    lastNode = that.parent();
+                    lastNode.addClass("active");
+                    ret = true;
+                    return true;
+                }
+            });
+        });
+        return ret;
+    }
+
+    /**
+     * menu click
+     */
+    $(".main > .main-left > .nav > .slide > .menu").click(function () {
+        var ul = $(this).next(".slide-menu");
+        var menu = $(this);
+        if (!ul.is(":visible")) {
+            menu.addClass("active");
+            ul.addClass("active");
+            ul.stop(true).slideDown("fast");
+        } else {
+            ul.stop(true).slideUp("fast", function () {
+                menu.removeClass("active");
+                ul.removeClass("active");
+            });
+        }
+    });
+
+    /**
+     * hook menu click and add the hash
+     */
+    $(".main > .main-left > .nav > .slide > .slide-menu > li > a").click(function () {
+        if (lastNode != undefined) lastNode.removeClass("active");
+        $(this).parent().addClass("active");
+        $(".main > .loading").fadeIn("fast");
+        return true;
+    });
+
+    /**
+     * fix menu click
+     */
+    $(".main > .main-left > .nav > .slide > .slide-menu > li").click(function () {
+        if (lastNode != undefined) lastNode.removeClass("active");
+        $(this).addClass("active");
+        $(".main > .loading").fadeIn("fast");
+        window.location = $($(this).find("a")[0]).attr("href");
+        return;
+    });
+
+    /**
+     * get current node and open it
+     */
+    if (getCurrentNodeByUrl()) {
+        mainNodeName = "node-" + luciLocation[0] + "-" + luciLocation[1];
+        mainNodeName = mainNodeName.replace(/[ \t\n\r\/]+/g, "_").toLowerCase();
+        $("body").addClass(mainNodeName);
+    }
+    $(".cbi-button-up").val("");
+    $(".cbi-button-down").val("");
+
+
+    /**
+     * hook other "A Label" and add hash to it.
+     */
+    $("#maincontent > .container").find("a").each(function () {
+        var that = $(this);
+        var onclick = that.attr("onclick");
+        if (onclick == undefined || onclick == "") {
+            that.click(function () {
+                var href = that.attr("href");
+                if (href.indexOf("#") == -1) {
+                    $(".main > .loading").fadeIn("fast");
+                    return true;
+                }
+            });
+        }
+    });
+
+    /**
+     * Sidebar expand
+     */
+    var showSide = false;
+    $(".showSide").click(function () {
+        if (showSide) {
+            $(".darkMask").stop(true).fadeOut("fast");
+            $(".main-left").stop(true).animate({
+                width: "0"
+            }, "fast");
+            $(".main-right").css("overflow-y", "auto");
+            showSide = false;
+        } else {
+            $(".darkMask").stop(true).fadeIn("fast");
+            $(".main-left").stop(true).animate({
+                width: "15rem"
+            }, "fast");
+            $(".main-right").css("overflow-y", "hidden");
+            showSide = true;
+        }
+    });
+
+
+    $(".darkMask").click(function () {
+        if (showSide) {
+            showSide = false;
+            $(".darkMask").stop(true).fadeOut("fast");
+            $(".main-left").stop(true).animate({
+                width: "0"
+            }, "fast");
+            $(".main-right").css("overflow-y", "auto");
+        }
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 921) {
+            $(".main-left").css("width", "");
+            $(".darkMask").stop(true);
+            $(".darkMask").css("display", "none");
+            showSide = false;
+        }
+    });
+
+    /**
+     * fix legend position
+     */
+    $("legend").each(function () {
+        var that = $(this);
+        that.after("<span class='panel-title'>" + that.text() + "</span>");
+    });
+
+
+    $(".main-right").focus();
+    $(".main-right").blur();
+    $("input").attr("size", "0");
+
+    if (mainNodeName != undefined) {
+        console.log('mainNodeName', mainNodeName);
+        switch (mainNodeName) {
+            case "node-status-system_log":
+            case "node-status-kernel_log":
+                $("#syslog").focus(function () {
+                    $("#syslog").blur();
+                    $(".main-right").focus();
+                    $(".main-right").blur();
+                });
+                break;
+            case "node-status-firewall":
+                var button = $(".node-status-firewall > .main fieldset li > a");
+                button.addClass("cbi-button cbi-button-reset a-to-btn");
+                break;
+            case "node-system-reboot":
+                var button = $(".node-system-reboot > .main > .main-right p > a");
+                button.addClass("cbi-button cbi-input-reset a-to-btn");
+                break;
+        }
+    }
+
+})(jQuery);
