@@ -1,3 +1,4 @@
+l
 SSN theme for LuCI (LEDE/OpenWRT)
 ========================================
 
@@ -12,7 +13,7 @@ Installation
 
 Edit the feeds.conf and add the following to it:
 
-    src-git themessn git://gitlab.stusta.de/stustanet/luci-theme-ssn.git.git
+    src-git themessn git://gitlab.stusta.de/stustanet/luci-theme-ssn.git
 
 Update the build environment and install the package:
 
