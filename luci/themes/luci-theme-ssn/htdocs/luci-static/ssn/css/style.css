@@ -155,6 +155,15 @@ header > .container {
     line-height: 56px;
 }
 
+header > .container > #ssn-logo {
+    background: #4f4e4a url('../img/stustanet.svg') no-repeat;
+    background-size: 166px 28px;
+    width: 166px;
+    display: inline-block;
+    height: 28px;
+    margin: 14px 10px 14px 0;
+}
+
 header > .container > .brand {
     font-size: 1.5rem;
     color: #d8d3c5;
